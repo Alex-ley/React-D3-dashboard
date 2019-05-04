@@ -1,5 +1,10 @@
+body {
+  background-color: #e9ecef;
+}
+
 .App {
-  text-align: center;
+  /* text-align: center; */
+  background-color: #e9ecef;
 }
 
 .App-logo {
@@ -8,9 +13,14 @@
   pointer-events: none;
 }
 
+.App-body {
+  /* background-color: #282c34; */
+  background-color: #e9ecef;
+}
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  /* background-color: #282c34; */
+  background-color: #e9ecef;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,4 +40,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.graph {
+    position: relative;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    visibility: hidden;
+}
+
+svg {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
