@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import VBarsChart from './charts/VBarsChart'
-import HBarsChart from './charts/HBarsChart' //must import all chart components here and also add them to switch below
+import HBarsChart from './charts/HBarsChart'
+import PieChart from './charts/PieChart' //must import all chart components here and also add them to switch below
 
 const ChartCardWrapper = (props) => {
-    const { data, chart } = props;
+    const { data, chart, render } = props;
 
     return (
 
@@ -15,9 +17,11 @@ const ChartCardWrapper = (props) => {
               (() => {
                 switch (chart.type) {
                   case 'VBarsChart':
-                    return <VBarsChart options={chart.options} data={data}/>;
+                    return <VBarsChart options={chart.options} data={data} key={chart.key} render={render}/>;
                   case 'HBarsChart':
-                    return <HBarsChart options={chart.options} data={data}/>
+                    return <HBarsChart options={chart.options} data={data} key={chart.key} render={render}/>;
+                  case 'PieChart':
+                    return <PieChart options={chart.options} data={data} key={chart.key} render={render}/>;
                   default:
                     return null;
                 }
@@ -26,7 +30,7 @@ const ChartCardWrapper = (props) => {
             <div className="card-action">
               <h5 className="card-title">Special title treatment</h5>
               <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <button >Randomize Data</button>
+              <br/><Link to={'/chart/' + chart.id}>Chart Detail</Link>
             </div>
           </div>
         </div>
